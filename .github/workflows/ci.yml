@@ -23,6 +23,7 @@ jobs:
           # repo checkout.
           working-directory: ${{ runner.temp }}
       - run: |
+          bundle exec rake bundle:audit
           bundle exec rake
       # TODO: migrate Travis settings below:
       # notifications:

@@ -6,6 +6,9 @@ Bundler::GemHelper.install_tasks
 
 require 'rake/testtask'
 require 'rubocop/rake_task'
+require 'bundler/audit/task'
+
+Bundler::Audit::Task.new
 
 desc 'Run Rubocop to check for style violations'
 RuboCop::RakeTask.new
@@ -38,7 +41,7 @@ task :fix_perms do
   end
 end
 
-desc 'Run unit tests and RuboCop to check for style violations'
-task all: %i[rubocop test fix_perms]
+desc 'Run unit tests, audit, and RuboCop'
+task all: %i[rubocop bundle:audit test fix_perms]
 
 task default: :all
