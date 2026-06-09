@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Copyright 2018 Google Inc. All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -37,7 +39,7 @@ module Fluent
     # Constants for configuration.
     module ConfigConstants
       # The default field name of insertIds in the log entry.
-      DEFAULT_INSERT_ID_KEY = 'logging.googleapis.com/insertId'.freeze
+      DEFAULT_INSERT_ID_KEY = 'logging.googleapis.com/insertId'
       # The character size of the insertIds. This matches the setup in the
       # Stackdriver Logging backend.
       INSERT_ID_SIZE = 17

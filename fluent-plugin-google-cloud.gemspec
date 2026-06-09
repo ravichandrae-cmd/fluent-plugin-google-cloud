@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Gem::Specification.new do |gem|
   gem.name          = 'fluent-plugin-google-cloud'
   gem.description   = <<-DESCRIPTION
@@ -13,7 +15,7 @@ Gem::Specification.new do |gem|
   gem.version       = '0.13.4'
   gem.authors       = ['Stackdriver Agents Team']
   gem.email         = ['stackdriver-agents@google.com']
-  gem.required_ruby_version = Gem::Requirement.new('>= 2.7')
+  gem.required_ruby_version = Gem::Requirement.new('>= 3.2')
 
   gem.files         = Dir['**/*'].keep_if { |file| File.file?(file) }
   gem.test_files    = gem.files.grep(/^(test)/)
@@ -22,7 +24,7 @@ Gem::Specification.new do |gem|
   # NOTE: In order to update the Fluentd version, please update both here and
   # also the fluentd version in
   # https://github.com/GoogleCloudPlatform/google-fluentd/blob/master/config/software/fluentd.rb.
-  gem.add_runtime_dependency 'fluentd', '1.16.2'
+  gem.add_runtime_dependency 'fluentd', '1.19.2'
   gem.add_runtime_dependency 'google-api-client', '0.53.0'
   gem.add_runtime_dependency 'googleapis-common-protos', '1.4.0'
   gem.add_runtime_dependency 'googleauth', '1.3.0'
@@ -34,10 +36,7 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency 'opencensus', '0.5.0'
   gem.add_runtime_dependency 'opencensus-stackdriver', '0.4.1'
 
-  # CVE-2023-28120, CVE-2023-22796, CVE-2023-38037: activesupport is a
-  # transitive dependency of google-api-client, which has not been updated
-  # upstream to a patched version, so we are pinning it here instead.
-  gem.add_runtime_dependency 'activesupport', '~> 6.1', '>= 6.1.7.5'
+  gem.add_runtime_dependency 'activesupport', '>= 7.2.3.1'
 
   gem.add_development_dependency 'mocha', '1.9.0'
   # Keep this the same as in

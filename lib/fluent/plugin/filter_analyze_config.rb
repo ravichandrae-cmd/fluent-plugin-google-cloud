@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Copyright 2020 Google Inc. All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,7 +21,6 @@ require 'fluent/plugin_helper'
 require 'googleauth'
 require 'google/apis/logging_v2'
 require 'open-uri'
-require 'set'
 
 require_relative 'common'
 require_relative 'monitoring'
@@ -38,7 +39,7 @@ module Fluent
     helpers :timer
 
     module Constants
-      PREFIX = 'agent.googleapis.com/agent/internal/logging/config'.freeze
+      PREFIX = 'agent.googleapis.com/agent/internal/logging/config'
 
       # Built-in plugins that are ok to reference in metrics.
       KNOWN_PLUGINS = {
@@ -336,9 +337,9 @@ module Fluent
           end
           enabled_plugins_counter.increment(
             labels: {
-              plugin_name: plugin_name,
-              is_default_plugin: is_default_plugin,
-              has_default_config: has_default_config,
+              plugin_name:,
+              is_default_plugin:,
+              has_default_config:,
               has_ruby_snippet: embedded_ruby?(e)
             },
             by: 1

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Copyright 2016 Google Inc. All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -2110,7 +2112,7 @@ module BaseTest
                                      retried_entries_count,
                                      'agent.googleapis.com/agent',
                                      OpenCensus::Stats::Aggregation::Sum, d,
-                                     grpc: use_grpc, code: code)
+                                     grpc: use_grpc, code:)
             # Skip failure assertions when code indicates success, because the
             # assertion will fail in the case when a single metric contains time
             # series with success and failure events.
@@ -2120,12 +2122,12 @@ module BaseTest
                                      failed_requests_count,
                                      'agent.googleapis.com/agent',
                                      OpenCensus::Stats::Aggregation::Sum, d,
-                                     grpc: use_grpc, code: code)
+                                     grpc: use_grpc, code:)
             assert_metric_value.call(:stackdriver_dropped_entries_count,
                                      dropped_entries_count,
                                      'agent.googleapis.com/agent',
                                      OpenCensus::Stats::Aggregation::Sum, d,
-                                     grpc: use_grpc, code: code)
+                                     grpc: use_grpc, code:)
           end
         end
       end
@@ -2152,7 +2154,7 @@ module BaseTest
     log, container_name = K8S_CONTAINER_NAME
   )
     {
-      log: log,
+      log:,
       stream: K8S_STREAM,
       time: K8S_TIMESTAMP,
       kubernetes: {
@@ -2160,7 +2162,7 @@ module BaseTest
         namespace_name: K8S_NAMESPACE_NAME,
         pod_id: CONTAINER_POD_ID,
         pod_name: K8S_POD_NAME,
-        container_name: container_name,
+        container_name:,
         labels: {
           CONTAINER_LABEL_KEY => CONTAINER_LABEL_VALUE
         }
@@ -2170,8 +2172,8 @@ module BaseTest
 
   def container_log_entry(log, stream = K8S_STREAM)
     {
-      log: log,
-      stream: stream,
+      log:,
+      stream:,
       time: K8S_TIMESTAMP
     }
   end
@@ -2179,7 +2181,7 @@ module BaseTest
   def k8s_container_log_entry(log,
                               local_resource_id: K8S_LOCAL_RESOURCE_ID)
     {
-      log: log,
+      log:,
       stream: K8S_STREAM,
       time: K8S_TIMESTAMP,
       LOCAL_RESOURCE_ID_KEY => local_resource_id
@@ -2188,7 +2190,7 @@ module BaseTest
 
   def k8s_pod_log_entry(log)
     {
-      log: log,
+      log:,
       stream: K8S_STREAM,
       time: K8S_TIMESTAMP,
       LOCAL_RESOURCE_ID_KEY =>
@@ -2200,7 +2202,7 @@ module BaseTest
 
   def k8s_node_log_entry(log)
     {
-      log: log,
+      log:,
       stream: K8S_STREAM,
       time: K8S_TIMESTAMP,
       LOCAL_RESOURCE_ID_KEY =>
@@ -2219,7 +2221,7 @@ module BaseTest
   def dataproc_log_entry(message, source_class = 'com.example.Example',
                          filename = 'test.log')
     {
-      filename: filename,
+      filename:,
       class: source_class,
       message: log_entry(message)
     }

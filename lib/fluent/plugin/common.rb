@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Copyright 2020 Google Inc. All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -83,10 +85,10 @@ module Common
   end
 
   # Name of the the Google cloud logging write scope.
-  LOGGING_SCOPE = 'https://www.googleapis.com/auth/logging.write'.freeze
+  LOGGING_SCOPE = 'https://www.googleapis.com/auth/logging.write'
 
   # Address of the metadata service.
-  METADATA_SERVICE_ADDR = '169.254.169.254'.freeze
+  METADATA_SERVICE_ADDR = '169.254.169.254'
 
   # "enum" of Platform values
   module Platform
@@ -226,7 +228,7 @@ module Common
     # Create a monitored resource from type and labels.
     def create_monitored_resource(type, labels)
       Google::Apis::LoggingV2::MonitoredResource.new(
-        type: type, labels: labels.to_h
+        type:, labels: labels.to_h
       )
     end
 

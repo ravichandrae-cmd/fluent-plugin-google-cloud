@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Copyright 2017 Google Inc. All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -155,7 +157,7 @@ module Monitoring
       @recorders[prefix].register_view(
         OpenCensus::Stats::View.new(
           name: translator.name,
-          measure: measure,
+          measure:,
           aggregation: stats_aggregation,
           description: docstring,
           columns: translator.view_labels.map(&:to_s)

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Copyright 2018 Google Inc. All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,10 +23,10 @@ require 'fluent/plugin/filter_add_insert_ids'
 class FilterAddInsertIdsTest < Test::Unit::TestCase
   include Fluent::AddInsertIdsFilter::ConfigConstants
 
-  CUSTOM_INSERT_ID_KEY = 'custom_insert_id_key'.freeze
-  INSERT_ID = 'aeyr82r92h249gh9h'.freeze
-  TEST_MESSAGE = 'test message for add_insert_ids plugin.'.freeze
-  APPLICATION_DEFAULT_CONFIG = ''.freeze
+  CUSTOM_INSERT_ID_KEY = 'custom_insert_id_key'
+  INSERT_ID = 'aeyr82r92h249gh9h'
+  TEST_MESSAGE = 'test message for add_insert_ids plugin.'
+  APPLICATION_DEFAULT_CONFIG = ''
   INSERT_ID_KEY_CONFIG = %(
     insert_id_key #{CUSTOM_INSERT_ID_KEY}
   ).freeze

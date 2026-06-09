@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Copyright 2020 Google Inc. All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -27,7 +29,7 @@ class FilterAnalyzeConfigTest < Test::Unit::TestCase
   include Fluent::AnalyzeConfigFilter::Constants
   include Utils
 
-  APPLICATION_DEFAULT_CONFIG = ''.freeze
+  APPLICATION_DEFAULT_CONFIG = ''
 
   def setup
     Fluent::Test.setup

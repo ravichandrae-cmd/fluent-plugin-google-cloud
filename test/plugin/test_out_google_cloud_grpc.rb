@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Copyright 2016 Google Inc. All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -277,7 +279,7 @@ class GoogleCloudOutputGRPCTest < Test::Unit::TestCase
 
   USE_GRPC_CONFIG = %(
     use_grpc true
-  ).freeze
+  )
 
   # The conversions from user input to output.
   def latency_conversion
@@ -346,11 +348,11 @@ class GoogleCloudOutputGRPCTest < Test::Unit::TestCase
                           labels: nil,
                           partial_success: nil)
       request = Google::Apis::LoggingV2::WriteLogEntriesRequest.new(
-        log_name: log_name,
-        resource: resource,
-        labels: labels,
-        entries: entries,
-        partial_success: partial_success
+        log_name:,
+        resource:,
+        labels:,
+        entries:,
+        partial_success:
       )
       @requests_received << request
       WriteLogEntriesResponse.new

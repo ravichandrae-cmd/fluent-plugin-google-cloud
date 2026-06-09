@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Copyright 2017 Google Inc. All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -39,39 +41,39 @@ module Constants
 
   # Generic attributes.
   HOSTNAME = Socket.gethostname
-  CUSTOM_LOGGING_API_URL = 'http://localhost:52000'.freeze
+  CUSTOM_LOGGING_API_URL = 'http://localhost:52000'
 
   # TODO(qingling128) Separate constants into different submodules.
   # Attributes used for the GCE metadata service.
-  PROJECT_ID = 'test-project-id'.freeze
-  ZONE = 'us-central1-b'.freeze
+  PROJECT_ID = 'test-project-id'
+  ZONE = 'us-central1-b'
   FULLY_QUALIFIED_ZONE = "projects/#{PROJECT_ID}/zones/#{ZONE}".freeze
-  VM_ID = '9876543210'.freeze
+  VM_ID = '9876543210'
 
-  RANDOM_LOCAL_RESOURCE_ID = 'ehb.jjk.poq.ll'.freeze
+  RANDOM_LOCAL_RESOURCE_ID = 'ehb.jjk.poq.ll'
 
   # Attributes used for the Metadata Agent resources.
-  METADATA_ZONE = 'us-central1-c'.freeze
-  METADATA_VM_ID = '0123456789'.freeze
+  METADATA_ZONE = 'us-central1-c'
+  METADATA_VM_ID = '0123456789'
 
   # Attributes used for custom (overridden) configs.
-  CUSTOM_PROJECT_ID = 'test-custom-project-id'.freeze
-  CUSTOM_ZONE = 'us-custom-central1-b'.freeze
+  CUSTOM_PROJECT_ID = 'test-custom-project-id'
+  CUSTOM_ZONE = 'us-custom-central1-b'
   CUSTOM_FULLY_QUALIFIED_ZONE = "projects/#{PROJECT_ID}/zones/#{ZONE}".freeze
-  CUSTOM_VM_ID = 'C9876543210'.freeze
-  CUSTOM_HOSTNAME = 'custom.hostname.org'.freeze
+  CUSTOM_VM_ID = 'C9876543210'
+  CUSTOM_HOSTNAME = 'custom.hostname.org'
   # Kubernetes-specific attributes.
-  CUSTOM_K8S_CLUSTER_NAME = 'kubernetes-cluster'.freeze
-  CUSTOM_K8S_LOCATION = 'kubernetes-location'.freeze
+  CUSTOM_K8S_CLUSTER_NAME = 'kubernetes-cluster'
+  CUSTOM_K8S_LOCATION = 'kubernetes-location'
 
   # Attributes used for the EC2 metadata service.
-  EC2_PROJECT_ID = 'test-ec2-project-id'.freeze
-  EC2_ZONE = 'us-west-2b'.freeze
+  EC2_PROJECT_ID = 'test-ec2-project-id'
+  EC2_ZONE = 'us-west-2b'
   EC2_PREFIXED_ZONE = "aws:#{EC2_ZONE}".freeze
-  EC2_REGION = 'us-west-2'.freeze
+  EC2_REGION = 'us-west-2'
   EC2_PREFIXED_REGION = "aws:#{EC2_REGION}".freeze
-  EC2_VM_ID = 'i-81c16767'.freeze
-  EC2_ACCOUNT_ID = '123456789012'.freeze
+  EC2_VM_ID = 'i-81c16767'
+  EC2_ACCOUNT_ID = '123456789012'
 
   # The formatting here matches the format used on the VM.
   EC2_IDENTITY_DOCUMENT = %({
@@ -82,30 +84,30 @@ module Constants
   }).freeze
 
   # Managed VMs specific labels.
-  MANAGED_VM_BACKEND_NAME = 'default'.freeze
-  MANAGED_VM_BACKEND_VERSION = 'guestbook2.0'.freeze
+  MANAGED_VM_BACKEND_NAME = 'default'
+  MANAGED_VM_BACKEND_VERSION = 'guestbook2.0'
 
   # LogEntry fields for extraction.
-  INSERT_ID = 'fah7yr7iw64tg857y'.freeze
-  INSERT_ID2 = 'fah7yr7iw64tgaeuf'.freeze
-  SPAN_ID = '000000000000004a'.freeze
-  SPAN_ID2 = '000000000000007e'.freeze
-  TRACE = 'projects/proj1/traces/1234567890abcdef1234567890abcdef'.freeze
-  TRACE2 = 'projects/proj1/traces/1234567890abcdef1234567890fedcba'.freeze
+  INSERT_ID = 'fah7yr7iw64tg857y'
+  INSERT_ID2 = 'fah7yr7iw64tgaeuf'
+  SPAN_ID = '000000000000004a'
+  SPAN_ID2 = '000000000000007e'
+  TRACE = 'projects/proj1/traces/1234567890abcdef1234567890abcdef'
+  TRACE2 = 'projects/proj1/traces/1234567890abcdef1234567890fedcba'
   TRACE_SAMPLED = true
   TRACE_SAMPLED2 = false
 
-  STACKDRIVER_TRACE_ID = '1234567890abcdef1234567890abcdef'.freeze
+  STACKDRIVER_TRACE_ID = '1234567890abcdef1234567890abcdef'
   FULL_STACKDRIVER_TRACE = \
     "projects/#{PROJECT_ID}/traces/#{STACKDRIVER_TRACE_ID}".freeze
 
   # Invalid trace id for stackdriver.
-  EMPTY_STRING = ''.freeze
-  INVALID_SHORT_STACKDRIVER_TRACE_ID = '1234567890abcdef'.freeze
+  EMPTY_STRING = ''
+  INVALID_SHORT_STACKDRIVER_TRACE_ID = '1234567890abcdef'
   INVALID_LONG_STACKDRIVER_TRACE_ID = \
-    '1234567890abcdef1234567890abcdef123'.freeze
+    '1234567890abcdef1234567890abcdef123'
   INVALID_NON_HEX_STACKDRIVER_TRACE_ID = \
-    '1234567890abcdef1234567890abcdeZ'.freeze
+    '1234567890abcdef1234567890abcdeZ'
 
   # Invalid full format of stackdriver trace.
   INVALID_TRACE_NO_TRACE_ID = "projects/#{PROJECT_ID}/traces/".freeze
@@ -120,21 +122,21 @@ module Constants
     "traces/#{INVALID_NON_HEX_STACKDRIVER_TRACE_ID}".freeze
 
   # New K8s resource constants.
-  K8S_LOCATION = 'us-central1-b'.freeze
-  K8S_LOCATION2 = 'us-central1-c'.freeze
-  K8S_CLUSTER_NAME = 'cluster-1'.freeze
-  K8S_NAMESPACE_NAME = 'kube-system'.freeze
-  K8S_NODE_NAME = 'performance--default-pool-cabf1342-08jc'.freeze
-  K8S_POD_NAME = 'redis-master-c0l82.foo.bar'.freeze
-  K8S_CONTAINER_NAME = 'redis'.freeze
-  K8S_STREAM = 'stdout'.freeze
+  K8S_LOCATION = 'us-central1-b'
+  K8S_LOCATION2 = 'us-central1-c'
+  K8S_CLUSTER_NAME = 'cluster-1'
+  K8S_NAMESPACE_NAME = 'kube-system'
+  K8S_NODE_NAME = 'performance--default-pool-cabf1342-08jc'
+  K8S_POD_NAME = 'redis-master-c0l82.foo.bar'
+  K8S_CONTAINER_NAME = 'redis'
+  K8S_STREAM = 'stdout'
   # Timestamp for 1234567890 seconds and 987654321 nanoseconds since epoch.
-  K8S_TIMESTAMP = '2009-02-13T23:31:30.987654321Z'.freeze
+  K8S_TIMESTAMP = '2009-02-13T23:31:30.987654321Z'
   K8S_SECONDS_EPOCH = 1_234_567_890
   K8S_NANOS = 987_654_321
-  K8S_CONTAINER_LOCAL_RESOURCE_ID_PREFIX = 'k8s_container'.freeze
-  K8S_POD_LOCAL_RESOURCE_ID_PREFIX = 'k8s_pod'.freeze
-  K8S_NODE_LOCAL_RESOURCE_ID_PREFIX = 'k8s_node'.freeze
+  K8S_CONTAINER_LOCAL_RESOURCE_ID_PREFIX = 'k8s_container'
+  K8S_POD_LOCAL_RESOURCE_ID_PREFIX = 'k8s_pod'
+  K8S_NODE_LOCAL_RESOURCE_ID_PREFIX = 'k8s_node'
   K8S_TAG =
     "var.log.containers.#{K8S_NAMESPACE_NAME}_#{K8S_POD_NAME}_" \
     "#{K8S_CONTAINER_NAME}.log".freeze
@@ -145,36 +147,36 @@ module Constants
     ".#{K8S_CONTAINER_NAME}".freeze
 
   # Container Engine / Kubernetes specific labels.
-  CONTAINER_NAMESPACE_ID = '898268c8-4a36-11e5-9d81-42010af0194c'.freeze
-  CONTAINER_POD_ID = 'cad3c3c4-4b9c-11e5-9d81-42010af0194c'.freeze
-  CONTAINER_LABEL_KEY = 'component'.freeze
-  CONTAINER_LABEL_VALUE = 'redis-component'.freeze
-  CONTAINER_SEVERITY = 'INFO'.freeze
-  CONTAINER_LOCAL_RESOURCE_ID_PREFIX = 'gke_container'.freeze
+  CONTAINER_NAMESPACE_ID = '898268c8-4a36-11e5-9d81-42010af0194c'
+  CONTAINER_POD_ID = 'cad3c3c4-4b9c-11e5-9d81-42010af0194c'
+  CONTAINER_LABEL_KEY = 'component'
+  CONTAINER_LABEL_VALUE = 'redis-component'
+  CONTAINER_SEVERITY = 'INFO'
+  CONTAINER_LOCAL_RESOURCE_ID_PREFIX = 'gke_container'
 
   # Dataflow specific labels.
-  DATAFLOW_REGION = 'us-central1'.freeze
-  DATAFLOW_JOB_NAME = 'job_name_1'.freeze
-  DATAFLOW_JOB_ID = 'job_id_1'.freeze
-  DATAFLOW_STEP_ID = 'step_1'.freeze
-  DATAFLOW_TAG = 'dataflow-worker'.freeze
+  DATAFLOW_REGION = 'us-central1'
+  DATAFLOW_JOB_NAME = 'job_name_1'
+  DATAFLOW_JOB_ID = 'job_id_1'
+  DATAFLOW_STEP_ID = 'step_1'
+  DATAFLOW_TAG = 'dataflow-worker'
 
   # Dataproc specific labels.
-  DATAPROC_CLUSTER_NAME = 'test-cluster'.freeze
-  DATAPROC_CLUSTER_UUID = '00000000-0000-0000-0000-000000000000'.freeze
-  DATAPROC_REGION = 'unittest'.freeze
+  DATAPROC_CLUSTER_NAME = 'test-cluster'
+  DATAPROC_CLUSTER_UUID = '00000000-0000-0000-0000-000000000000'
+  DATAPROC_REGION = 'unittest'
 
   # ML specific labels.
-  ML_REGION = 'us-central1'.freeze
-  ML_JOB_ID = 'job_name_1'.freeze
-  ML_TASK_NAME = 'task_name_1'.freeze
-  ML_TRIAL_ID = 'trial_id_1'.freeze
-  ML_LOG_AREA = 'log_area_1'.freeze
-  ML_TAG = 'master-replica-0'.freeze
+  ML_REGION = 'us-central1'
+  ML_JOB_ID = 'job_name_1'
+  ML_TASK_NAME = 'task_name_1'
+  ML_TRIAL_ID = 'trial_id_1'
+  ML_LOG_AREA = 'log_area_1'
+  ML_TAG = 'master-replica-0'
 
   # Parameters used for authentication.
-  AUTH_GRANT_TYPE = 'urn:ietf:params:oauth:grant-type:jwt-bearer'.freeze
-  FAKE_AUTH_TOKEN = 'abc123'.freeze
+  AUTH_GRANT_TYPE = 'urn:ietf:params:oauth:grant-type:jwt-bearer'
+  FAKE_AUTH_TOKEN = 'abc123'
 
   # Information about test credentials files.
   # path: Path to the credentials file.
@@ -197,16 +199,16 @@ module Constants
   }.freeze
 
   # Special googleauth environment variables.
-  PROJECT_ID_VAR = 'GOOGLE_PROJECT_ID'.freeze
-  PRIVATE_KEY_VAR = 'GOOGLE_PRIVATE_KEY'.freeze
-  CLIENT_EMAIL_VAR = 'GOOGLE_CLIENT_EMAIL'.freeze
-  CLIENT_ID_VAR = 'GOOGLE_CLIENT_ID'.freeze
-  CLIENT_SECRET_VAR = 'GOOGLE_CLIENT_SECRET'.freeze
-  REFRESH_TOKEN_VAR = 'GOOGLE_REFRESH_TOKEN'.freeze
+  PROJECT_ID_VAR = 'GOOGLE_PROJECT_ID'
+  PRIVATE_KEY_VAR = 'GOOGLE_PRIVATE_KEY'
+  CLIENT_EMAIL_VAR = 'GOOGLE_CLIENT_EMAIL'
+  CLIENT_ID_VAR = 'GOOGLE_CLIENT_ID'
+  CLIENT_SECRET_VAR = 'GOOGLE_CLIENT_SECRET'
+  REFRESH_TOKEN_VAR = 'GOOGLE_REFRESH_TOKEN'
 
   # Configuration files for various test scenarios.
   APPLICATION_DEFAULT_CONFIG = %(
-  ).freeze
+  )
 
   CUSTOM_LOGGING_API_URL_CONFIG = %(
     logging_api_url #{CUSTOM_LOGGING_API_URL}
@@ -214,47 +216,47 @@ module Constants
 
   DETECT_JSON_CONFIG = %(
     detect_json true
-  ).freeze
+  )
 
   PRIVATE_KEY_CONFIG = %(
      auth_method private_key
      private_key_email 271661262351-ft99kc9kjro9rrihq3k2n3s2inbplu0q@developer.gserviceaccount.com
      private_key_path test/plugin/data/c31e573fd7f62ed495c9ca3821a5a85cb036dee1-privatekey.p12
-  ).freeze
+  )
 
   REQUIRE_VALID_TAGS_CONFIG = %(
     require_valid_tags true
-  ).freeze
+  )
 
   NO_METADATA_SERVICE_CONFIG = %(
     use_metadata_service false
-  ).freeze
+  )
 
   NO_DETECT_SUBSERVICE_CONFIG = %(
     detect_subservice false
-  ).freeze
+  )
 
   ENABLE_SPLIT_LOGS_BY_TAG_CONFIG = %(
     split_logs_by_tag true
-  ).freeze
+  )
 
   ENABLE_PROMETHEUS_CONFIG = %(
     enable_monitoring true
     monitoring_type prometheus
-  ).freeze
+  )
 
   ENABLE_OPENCENSUS_CONFIG = %(
     enable_monitoring true
     monitoring_type opencensus
-  ).freeze
+  )
 
   ENABLE_AUTOFORMAT_STACKDRIVER_TRACE_CONFIG = %(
     autoformat_stackdriver_trace true
-  ).freeze
+  )
 
   DISABLE_AUTOFORMAT_STACKDRIVER_TRACE_CONFIG = %(
     autoformat_stackdriver_trace false
-  ).freeze
+  )
 
   CUSTOM_METADATA_CONFIG = %(
     project_id #{CUSTOM_PROJECT_ID}
@@ -276,7 +278,7 @@ module Constants
     zone #{CUSTOM_ZONE}
   ).freeze
   CONFIG_MISSING_METADATA_ALL = %(
-  ).freeze
+  )
 
   CUSTOM_K8S_CONFIG = %(
     k8s_cluster_name #{CUSTOM_K8S_CLUSTER_NAME}
@@ -286,7 +288,7 @@ module Constants
   EMPTY_K8S_CONFIG = %(
     k8s_cluster_name ""
     k8s_cluster_location ""
-  ).freeze
+  )
 
   CONFIG_EC2_PROJECT_ID = %(
     project_id #{EC2_PROJECT_ID}
@@ -324,31 +326,31 @@ module Constants
 
   CONFIG_CUSTOM_INSERT_ID_KEY_SPECIFIED = %(
     insert_id_key custom_insert_id_key
-  ).freeze
+  )
 
   CONFIG_CUSTOM_LABELS_KEY_SPECIFIED = %(
     labels_key custom_labels_key
-  ).freeze
+  )
 
   CONFIG_CUSTOM_OPERATION_KEY_SPECIFIED = %(
     operation_key custom_operation_key
-  ).freeze
+  )
 
   CONFIG_CUSTOM_SOURCE_LOCATION_KEY_SPECIFIED = %(
     source_location_key custom_source_location_key
-  ).freeze
+  )
 
   CONFIG_CUSTOM_SPAN_ID_KEY_SPECIFIED = %(
     span_id_key custom_span_id_key
-  ).freeze
+  )
 
   CONFIG_CUSTOM_TRACE_KEY_SPECIFIED = %(
     trace_key custom_trace_key
-  ).freeze
+  )
 
   CONFIG_CUSTOM_TRACE_SAMPLED_KEY_SPECIFIED = %(
     trace_sampled_key custom_trace_sampled_key
-  ).freeze
+  )
 
   # For 'labels' config.
   LABELS_FROM_LABELS_CONFIG = {
@@ -382,10 +384,10 @@ module Constants
   ).freeze
 
   # For conflicting labels.
-  CONFLICTING_LABEL_NAME = 'conflicting_label_key'.freeze
-  CONFLICTING_LABEL_VALUE1 = 'conflicting_value_1'.freeze
-  CONFLICTING_LABEL_VALUE2 = 'conflicting_value_2'.freeze
-  CONFLICTING_LABEL_VALUE3 = 'conflicting_value_3'.freeze
+  CONFLICTING_LABEL_NAME = 'conflicting_label_key'
+  CONFLICTING_LABEL_VALUE1 = 'conflicting_value_1'
+  CONFLICTING_LABEL_VALUE2 = 'conflicting_value_2'
+  CONFLICTING_LABEL_VALUE3 = 'conflicting_value_3'
   LABELS_FROM_PAYLOAD_CONFLICTING = {
     CONFLICTING_LABEL_NAME => CONFLICTING_LABEL_VALUE1
   }.freeze
@@ -417,55 +419,55 @@ module Constants
   CONFIG_UNKNOWN_MONITORING_TYPE = %(
     enable_monitoring  true
     monitoring_type    not_prometheus
-  ).freeze
+  )
 
   CONFIG_METRICS_RESOURCE_JSON = %(
     enable_monitoring  true
     monitoring_type    opencensus
     metrics_resource   {"type":"custom_resource","labels":{"label1":"123","label2":"abc"}}
-  ).freeze
+  )
 
   CONFIG_METRICS_RESOURCE_HASH = %(
     enable_monitoring  true
     monitoring_type    opencensus
     metrics_resource   type:custom_resource, labels.label1:123, labels.label2:abc
-  ).freeze
+  )
 
   CONFIG_METRICS_RESOURCE_JSON_HASH = %(
     enable_monitoring  true
     monitoring_type    opencensus
     metrics_resource   {"type":"custom_resource","labels.label1":"123","labels.label2":"abc"}
-  ).freeze
+  )
 
   CONFIG_METRICS_RESOURCE_JSON_NO_TYPE = %(
     enable_monitoring  true
     monitoring_type    opencensus
     metrics_resource   {"labels":{"label1":"123","label2":"abc"}}
-  ).freeze
+  )
 
   CONFIG_METRICS_RESOURCE_JSON_BAD_LABELS = %(
     enable_monitoring  true
     monitoring_type    opencensus
     metrics_resource   {"type":"custom_resource","labels":"123"}
-  ).freeze
+  )
 
   CONFIG_METRICS_RESOURCE_JSON_BAD_KEYS = %(
     enable_monitoring  true
     monitoring_type    opencensus
     metrics_resource   {"type":"custom_resource","labels":{"label1":"123"},"random":"x"}
-  ).freeze
+  )
 
   CONFIG_METRICS_RESOURCE_JSON_BAD_KEYS_LABELS = %(
     enable_monitoring  true
     monitoring_type    opencensus
     metrics_resource   {"type":"custom_resource","labels":{"label1":"123"},"labels.random":"x"}
-  ).freeze
+  )
 
   CONFIG_METRICS_RESOURCE_JSON_BAD_KEYS_NO_LABELS = %(
     enable_monitoring  true
     monitoring_type    opencensus
     metrics_resource   {"type":"custom_resource","labels.label1":"123","random":"x"}
-  ).freeze
+  )
 
   # For statusz.
   CONFIG_STATUSZ = %(
@@ -503,7 +505,7 @@ module Constants
     vm_id                         12345
     vm_name                       test.hostname.org
     zone                          asia-east2
-  ).freeze
+  )
 
   # For analyze_config.
   CONFIG_ANALYZE_CONFIG_PROMETHEUS = %(
@@ -512,14 +514,14 @@ module Constants
     google_fluentd_baseline_config_path \
       test/plugin/data/google-fluentd-baseline.conf
     monitoring_type prometheus
-  ).freeze
+  )
   CONFIG_ANALYZE_CONFIG_OPENCENSUS = %(
     google_fluentd_config_path          \
       test/plugin/data/google-fluentd-custom.conf
     google_fluentd_baseline_config_path \
       test/plugin/data/google-fluentd-baseline.conf
     monitoring_type opencensus
-  ).freeze
+  )
 
   # Service configurations for various services.
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Copyright 2019 Google Inc. All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -26,8 +28,8 @@ module Statusz
                         minutes: (uptime / 60) % 60,
                         seconds: uptime % 60)
     ERB.new(STATUSZ_TMPL).result_with_hash(
-      plugin: plugin,
-      uptime_str: uptime_str
+      plugin:,
+      uptime_str:
     )
   end
 end

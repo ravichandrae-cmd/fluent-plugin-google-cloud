@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Copyright 2014 Google Inc. All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -55,9 +57,9 @@ module Google
         # CredentialsLoader.load_gcloud_project_id, but we cannot catch it
         # before it's invoked via "require 'googleauth'". So we override the
         # constants instead.
-        GCLOUD_POSIX_COMMAND = '/bin/true'.freeze
-        GCLOUD_WINDOWS_COMMAND = 'cd .'.freeze
-        GCLOUD_CONFIG_COMMAND = ''.freeze
+        GCLOUD_POSIX_COMMAND = '/bin/true'
+        GCLOUD_WINDOWS_COMMAND = 'cd .'
+        GCLOUD_CONFIG_COMMAND = ''
       ensure
         $VERBOSE = warn_level
       end
@@ -96,26 +98,26 @@ module Fluent
     module ConfigConstants
       # Default values for JSON payload keys to set the "httpRequest",
       # "operation", "sourceLocation", "trace" fields in the LogEntry.
-      DEFAULT_HTTP_REQUEST_KEY = 'httpRequest'.freeze
-      DEFAULT_INSERT_ID_KEY = 'logging.googleapis.com/insertId'.freeze
-      DEFAULT_LABELS_KEY = 'logging.googleapis.com/labels'.freeze
-      DEFAULT_OPERATION_KEY = 'logging.googleapis.com/operation'.freeze
+      DEFAULT_HTTP_REQUEST_KEY = 'httpRequest'
+      DEFAULT_INSERT_ID_KEY = 'logging.googleapis.com/insertId'
+      DEFAULT_LABELS_KEY = 'logging.googleapis.com/labels'
+      DEFAULT_OPERATION_KEY = 'logging.googleapis.com/operation'
       DEFAULT_SOURCE_LOCATION_KEY =
-        'logging.googleapis.com/sourceLocation'.freeze
-      DEFAULT_SPAN_ID_KEY = 'logging.googleapis.com/spanId'.freeze
-      DEFAULT_TRACE_KEY = 'logging.googleapis.com/trace'.freeze
-      DEFAULT_TRACE_SAMPLED_KEY = 'logging.googleapis.com/trace_sampled'.freeze
+        'logging.googleapis.com/sourceLocation'
+      DEFAULT_SPAN_ID_KEY = 'logging.googleapis.com/spanId'
+      DEFAULT_TRACE_KEY = 'logging.googleapis.com/trace'
+      DEFAULT_TRACE_SAMPLED_KEY = 'logging.googleapis.com/trace_sampled'
     end
 
     # Internal constants.
     module InternalConstants
-      CREDENTIALS_PATH_ENV_VAR = 'GOOGLE_APPLICATION_CREDENTIALS'.freeze
-      DEFAULT_LOGGING_API_URL = 'https://logging.googleapis.com'.freeze
+      CREDENTIALS_PATH_ENV_VAR = 'GOOGLE_APPLICATION_CREDENTIALS'
+      DEFAULT_LOGGING_API_URL = 'https://logging.googleapis.com'
 
       # The label name of local_resource_id in the json payload. When a record
       # has this field in the payload, we will use the value to retrieve
       # monitored resource from Stackdriver Metadata agent.
-      LOCAL_RESOURCE_ID_KEY = 'logging.googleapis.com/local_resource_id'.freeze
+      LOCAL_RESOURCE_ID_KEY = 'logging.googleapis.com/local_resource_id'
 
       # The regexp matches stackdriver trace id format: 32-byte hex string.
       # The format is documented in
@@ -179,7 +181,6 @@ module Fluent
       # The name of the WriteLogEntriesPartialErrors field in the error details.
       PARTIAL_ERROR_FIELD =
         'type.googleapis.com/google.logging.v2.WriteLogEntriesPartialErrors' \
-        .freeze
     end
 
     include Common::ServiceConstants
@@ -190,7 +191,7 @@ module Fluent
 
     helpers :server, :timer
 
-    PLUGIN_NAME = 'Fluentd Google Cloud Logging plugin'.freeze
+    PLUGIN_NAME = 'Fluentd Google Cloud Logging plugin'
 
     # Follows semver.org format.
     PLUGIN_VERSION = begin
@@ -775,8 +776,8 @@ module Fluent
         )}"
 
         requests_to_send << {
-          entries: entries,
-          log_name: log_name,
+          entries:,
+          log_name:,
           resource: group_level_resource,
           labels: group_level_common_labels
         }
@@ -847,7 +848,7 @@ module Fluent
                                            ts_secs,
                                            ts_nanos)
       entry = Google::Cloud::Logging::V2::LogEntry.new(
-        labels: labels,
+        labels:,
         resource: Google::Api::MonitoredResource.new(
           type: resource.type,
           labels: resource.labels.to_h
@@ -876,9 +877,9 @@ module Fluent
       # Remove the labels if we didn't populate them with anything.
       resource.labels = nil if resource.labels.empty?
       Google::Apis::LoggingV2::LogEntry.new(
-        labels: labels,
-        resource: resource,
-        severity: severity,
+        labels:,
+        resource:,
+        severity:,
         timestamp: {
           seconds: ts_secs,
           nanos: ts_nanos
@@ -893,8 +894,8 @@ module Fluent
       client = api_client
       entries_count = entries.length
       client.write_log_entries(
-        entries: entries,
-        log_name: log_name,
+        entries:,
+        log_name:,
         # Leave resource nil if it's nil.
         resource: if resource
                     Google::Api::MonitoredResource.new(
@@ -1026,10 +1027,10 @@ module Fluent
       entries_count = entries.length
       client.write_entry_log_entries(
         Google::Apis::LoggingV2::WriteLogEntriesRequest.new(
-          entries: entries,
-          log_name: log_name,
-          resource: resource,
-          labels: labels,
+          entries:,
+          log_name:,
+          resource:,
+          labels:,
           partial_success: true
         ),
         options: { api_format_version: '2' }
@@ -1657,13 +1658,13 @@ module Fluent
       nanos = (match['decimal'].to_f * 1000 * 1000 * 1000).round
       if @use_grpc
         Google::Protobuf::Duration.new(
-          seconds: seconds,
-          nanos: nanos
+          seconds:,
+          nanos:
         )
       else
         {
-          seconds: seconds,
-          nanos: nanos
+          seconds:,
+          nanos:
         }.delete_if { |_, v| v.zero? }
       end
     end
@@ -2125,7 +2126,7 @@ module Fluent
       end
       constructed_resource = Google::Apis::LoggingV2::MonitoredResource.new(
         type: resource_type,
-        labels: labels
+        labels:
       )
       @log.debug("Constructed #{resource_type} resource locally: " \
                  "#{constructed_resource.inspect}")
@@ -2157,7 +2158,7 @@ module Fluent
       return unless @failed_requests_count
 
       @failed_requests_count.increment(
-        labels: { grpc: @use_grpc, code: code }
+        labels: { grpc: @use_grpc, code: }
       )
     end
 
@@ -2177,7 +2178,7 @@ module Fluent
       return unless @dropped_entries_count
 
       @dropped_entries_count.increment(
-        labels: { grpc: @use_grpc, code: code }, by: count
+        labels: { grpc: @use_grpc, code: }, by: count
       )
     end
 
@@ -2187,7 +2188,7 @@ module Fluent
       return unless @retried_entries_count
 
       @retried_entries_count.increment(
-        labels: { grpc: @use_grpc, code: code }, by: count
+        labels: { grpc: @use_grpc, code: }, by: count
       )
     end
   end
