@@ -38,8 +38,8 @@ Gem::Specification.new do |gem|
 
   gem.add_runtime_dependency 'activesupport', '>= 7.2.3.1'
 
-  gem.add_development_dependency 'mocha', '1.9.0'
   gem.add_development_dependency 'bundler-audit'
+  gem.add_development_dependency 'mocha', '1.9.0'
   # Keep this the same as in
   # https://github.com/fluent/fluent-plugin-prometheus/blob/master/fluent-plugin-prometheus.gemspec
   gem.add_development_dependency 'coveralls', '0.8.23'

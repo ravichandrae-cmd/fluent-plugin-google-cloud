@@ -6,7 +6,6 @@ jobs:
       fail-fast: false
       matrix:
         rvm:
-          - '3.2'
           - '3.3'
     runs-on: ubuntu-latest
     steps:
